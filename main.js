@@ -468,3 +468,104 @@ var myPlants = [
 var secondTree = myPlants[1].list[1];
 console.log(secondTree); //pine
 console.log(myPlants[0].list[2]); //dadelion
+
+/* Your function must always return the entire record collection object.
+If prop isn't tracks and value isn't an empty string, update or set that album's prop to value.
+If prop is tracks but the album doesn't have a tracks property, create an empty array and add value to it.
+If prop is tracks and value isn't an empty string, add value to the end of the album's existing tracks array.
+If value is an empty string, delete the given prop property from the album.*/
+var recordCollection = {
+  2548: {
+    albumTitle: "Slippery When Wet",
+    artist: "Bon Jovi",
+    tracks: ["Let It Rock", "You Give Love a Bad Name"],
+  },
+  2468: {
+    albumTitle: "1999",
+    artist: "Prince",
+    tracks: ["1999", "Little Red Corvette"],
+  },
+  1245: {
+    artist: "Robert Palmer",
+    tracks: [],
+  },
+  5439: {
+    albumTitle: "ABBA Gold",
+  },
+};
+
+function updateRecords(records, id, prop, value) {
+  if (prop != "tracks" && value != "") {
+    records[id][prop] = value;
+  } else if (prop === "tracks" && records[id].hasOwnProperty("tracks") === false) {
+    records[id][prop] = [value];
+  } else if (prop === "tracks" && value !== "") {
+    records[id][prop].push(value);
+  } else if (value === "") {
+    delete records[id][prop];
+  }
+  return records;
+}
+
+updateRecords(recordCollection, 5439, "artist", "ABBA");
+console.log(updateRecords(recordCollection, 5439, "artist", "ABBA"));
+
+//While loop
+var ourArray = [];
+var i = 0;
+while (i < 5) {
+  ourArray.push(i);
+  i++;
+}
+
+console.log(ourArray); //[0, 1, 2, 3, 4]
+
+var myArray = [];
+var i = 5;
+while (i >= 0) {
+  myArray.push(i);
+  i--;
+}
+console.log(myArray); //[5, 4, 3, 2, 1, 0]
+
+///for loop
+let Arr = [];
+for (let index = 0; index <= 7; index++) {
+  Arr.push(index);
+}
+console.log(Arr); //[0, 1, 2, 3, 4, 5, 6, 7]
+
+/////
+var myArr = [];
+for (let i = 2; i < 6; i++) {
+  myArr.push(i);
+}
+console.log(myArr); // [2, 3, 4, 5]
+
+///EVEN numbers
+let ourArray2 = [];
+for (let i = 0; i < 10; i += 2) {
+  ourArray2.push(i);
+}
+console.log(ourArray2); // [0, 2, 4, 6, 8]
+
+///ODD numbers
+let myArray2 = [];
+for (let i = 1; i < 10; i += 2) {
+  myArray2.push(i);
+}
+console.log(myArray2); // [1, 3, 5, 7, 9]
+
+///
+let myArray3 = [];
+for (let i = 10; i >= 0; i -= 2) {
+  myArray3.push(i);
+}
+console.log(myArray3); // [10, 8, 6, 4, 2, 0]
+
+///
+let myArray4 = [];
+for (let i = 9; i > 0; i -= 2) {
+  myArray4.push(i);
+}
+console.log(myArray4); // [9, 7, 5, 3, 1]
