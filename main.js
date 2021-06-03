@@ -254,3 +254,217 @@ console.log("El nuevo color de mi Honda es " + miHonda.color);
 console.log("miCoche[0].color = " + miCoche[0].color);
 
 console.log("nuevoCoche[0].color = " + nuevoCoche[0].color);
+
+///REDUCE
+const array1 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+// 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer));
+// expected output: 10
+
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5));
+// expected output: 15
+
+///REDUCE
+const users = [
+  { name: "John", age: 34 },
+  { name: "Amy", age: 20 },
+  { name: "camperCat", age: 10 },
+];
+
+const sumOfAges = users.reduce((sum, user) => sum + user.age, 0);
+console.log(sumOfAges);
+
+const usersObj = users.reduce((obj, user) => {
+  obj[user.name] = user.age;
+  return obj;
+}, {});
+console.log(usersObj);
+
+//// REDUCE FROM WATCHLIST
+
+function getRating(watchList) {
+  // Only change code below this line
+  var averageRating =
+    watchList
+      // Use filter to find films directed by Christopher Nolan
+      .filter((film) => film.Director === "Christopher Nolan")
+      // Use map to convert their ratings from strings to numbers
+      .map((film) => Number(film.imdbRating))
+      // Use reduce to add together their ratings
+      .reduce((sumOfRatings, rating) => sumOfRatings + rating) /
+    // Divide by the number of Nolan films to get the average rating
+    watchList.filter((film) => film.Director === "Christopher Nolan").length;
+
+  // Only change code above this line
+  return averageRating;
+}
+console.log(getRating(watchList));
+
+/////SWICTH
+function sequentialSizes(val) {
+  let answer = "";
+  switch (val) {
+    case 1:
+    case 2:
+    case 3:
+      return "Low";
+      break;
+    case 4:
+    case 5:
+    case 6:
+      return "Mid";
+      break;
+    case 7:
+    case 8:
+    case 9:
+      return "High";
+      break;
+  }
+  return answer;
+}
+
+sequentialSizes(1);
+console.log(sequentialSizes(8));
+
+///
+function chainToSwitch(val) {
+  var answer = "";
+  // Only change code below this line
+  switch (val) {
+    case "bob":
+      return "Marley";
+      break;
+    case 42:
+      return "The Answer";
+      break;
+    case 1:
+      return "There is no #1";
+      break;
+    case 99:
+      return "Missed me by this much!";
+      break;
+    case 7:
+      return "Ate Nine";
+      break;
+  }
+
+  return answer;
+}
+
+chainToSwitch(7);
+console.log(chainToSwitch(99));
+
+//// Returning boolean
+function isLess(a, b) {
+  return a < b;
+}
+isLess(10, 15);
+console.log(isLess(10, 15));
+console.log(isLess(30, 15));
+
+///Accessing Object Properties with Variables
+var testObj = {
+  12: "Namath",
+  16: "Montana",
+  19: "Unitas",
+};
+var playerNumber = 16;
+var player = testObj[playerNumber];
+console.log(player);
+console.log(testObj[19]);
+
+//Updating Object Properties
+var myDog = {
+  name: "Bryan",
+  legs: 4,
+  tails: 1,
+  friends: ["freeCodeCamp Campers"],
+};
+myDog.name = "Bray";
+console.log(myDog.name);
+
+///Add properties
+const myDoggy = {
+  name: "Happy Coder",
+  legs: 4,
+  tails: 1,
+  friends: ["freeCodeCamp Campers"],
+};
+myDog.bark = "woof";
+console.log(myDoggy);
+
+///Delete properties
+var myBray = {
+  name: "Happy Bray",
+  legs: 4,
+  tails: 1,
+  friends: ["freeCodeCamp Campers"],
+  bark: "woof",
+};
+delete myBray.tails;
+console.log(myBray);
+
+//// Using Objects for Lookups
+function phoneticLookup(val) {
+  var result = "";
+  var lookup = {
+    alpha: "Adams",
+    bravo: "Boston",
+    charlie: "Chicago",
+    delta: "Denver",
+    echo: "Easy",
+    foxtrot: "Frank",
+  };
+  result = lookup[val];
+  return result;
+}
+
+phoneticLookup("charlie");
+console.log(phoneticLookup("echo"));
+
+///
+function checkObj(obj, checkProp) {
+  if (obj.hasOwnProperty(checkProp)) {
+    return obj[checkProp];
+  } else {
+    return "Not Found";
+  }
+}
+console.log(checkObj({ gift: "pony", pet: "kitten", bed: "sleigh" }, "gift")); // pony
+console.log(checkObj({ city: "Seattle" }, "district")); // Not found
+
+/// Nested objects
+
+var myStorage = {
+  car: {
+    inside: {
+      "glove box": "maps",
+      "passenger seat": "crumbs",
+    },
+    outside: {
+      trunk: "jack",
+    },
+  },
+};
+var gloveBoxContents = myStorage.car.inside["glove box"];
+console.log(gloveBoxContents); //maps
+console.log(myStorage.car.outside.trunk); //jack
+
+///Nrsted Arrays
+var myPlants = [
+  {
+    type: "flowers",
+    list: ["rose", "tulip", "dandelion"],
+  },
+  {
+    type: "trees",
+    list: ["fir", "pine", "birch"],
+  },
+];
+
+var secondTree = myPlants[1].list[1];
+console.log(secondTree); //pine
+console.log(myPlants[0].list[2]); //dadelion
