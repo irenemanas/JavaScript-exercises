@@ -569,3 +569,225 @@ for (let i = 9; i > 0; i -= 2) {
   myArray4.push(i);
 }
 console.log(myArray4); // [9, 7, 5, 3, 1]
+
+///Iterate wirh for loop
+var myArr = [2, 3, 4, 5, 6];
+var total = 0;
+for (let i = 0; i < myArr.length; i++) {
+  total += myArr[i];
+}
+console.log(total);
+/////
+var arr = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
+for (var i = 0; i < arr.length; i++) {
+  for (var j = 0; j < arr[i].length; j++) {
+    console.log(arr[i][j]);
+  }
+}
+//////Product
+function multiplyAll(arr) {
+  var product = 1;
+  // Only change code below this line
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      product *= arr[i][j];
+    }
+  }
+  // Only change code above this line
+  return product;
+}
+
+multiplyAll([
+  [1, 2],
+  [3, 4],
+  [5, 6, 7],
+]);
+console.log(
+  multiplyAll([
+    [1, 2],
+    [3, 4],
+    [5, 6, 7],
+  ])
+); // 5040
+console.log(
+  multiplyAll([
+    [2, 1],
+    [2, 3],
+  ])
+); // 12
+
+////PROFILE LOOKUP
+var contacts = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "0543236543",
+    likes: ["Pizza", "Coding", "Brownie Points"],
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0994372684",
+    likes: ["Hogwarts", "Magic", "Hagrid"],
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0487345643",
+    likes: ["Intriguing Cases", "Violin"],
+  },
+  {
+    firstName: "Kristian",
+    lastName: "Vos",
+    number: "unknown",
+    likes: ["JavaScript", "Gaming", "Foxes"],
+  },
+];
+
+function lookUpProfile(name, prop) {
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i].firstName === name) {
+      if (contacts[i].hasOwnProperty(prop)) {
+        return contacts[i][prop];
+      } else {
+        return "No such property";
+      }
+    }
+  }
+  return "No such contact";
+}
+lookUpProfile("Akira", "likes");
+console.log(lookUpProfile("Akira", "likes")); //["Pizza", "Coding", "Brownie Points"]
+console.log(lookUpProfile("Harry", "number")); // 0994372684
+console.log(lookUpProfile("Akira", "caca")); // No such property
+console.log(lookUpProfile("Irene", "lastName")); // No such contact
+
+///MATH RANDOM
+function randomFraction() {
+  return Math.random();
+}
+console.log(randomFraction()); // number between 0 and 1 (1 excluded)
+///
+function randomWholeNum() {
+  return Math.floor(Math.random() * 10);
+}
+console.log(randomWholeNum()); // 8, number betwee 1 and 9 (included)
+
+///
+function randomRange(myMin, myMax) {
+  return Math.floor(Math.random() * (myMax - myMin + 1) + myMin);
+}
+console.log(randomRange(13, 15)); // 13, 14 or 15
+
+////parseInt() parses a string and returns an integer
+let a = parseInt("007");
+console.log(a); // 7
+///
+function convertToInteger(str) {
+  return parseInt(str);
+}
+convertToInteger("56");
+console.log(convertToInteger("56")); // 56
+
+///parseInt with radix
+function convertToInteger2(str) {
+  return parseInt(str, 2);
+}
+console.log(convertToInteger2("10011")); // 19
+
+///TERNARY OPERATOR
+function checkEqual(a, b) {
+  return a === b ? "Equal" : "Not Equal";
+}
+
+checkEqual(1, 2);
+console.log(checkEqual(1, 2)); // Not Equal
+console.log(checkEqual(16, 16)); // Equal
+
+function checkSign(num) {
+  return num > 0 ? "positive" : num < 0 ? "negative" : "zero";
+}
+checkSign(10);
+console.log(checkSign(10)); // positive
+console.log(checkSign(-12)); // negative
+console.log(checkSign("caca")); // zero
+
+////RECURSION
+function countup(n) {
+  if (n < 1) {
+    return [];
+  } else {
+    const countArray = countup(n - 1);
+    countArray.push(n);
+    return countArray;
+  }
+}
+console.log(countup(5)); // [1, 2, 3, 4, 5]
+
+function countdown(n) {
+  if (n < 1) {
+    return [];
+  } else {
+    const countArray = countdown(n - 1);
+    countArray.unshift(n);
+    return countArray;
+  }
+}
+console.log(countdown(7)); // [7, 6, 5, 4, 3, 2, 1]
+
+/////
+function rangeOfNumbers(startNum, endNum) {
+  if (startNum === endNum) {
+    return [startNum];
+  } else {
+    const numbers = rangeOfNumbers(startNum, endNum - 1);
+    numbers.push(endNum);
+    return numbers;
+  }
+}
+console.log(rangeOfNumbers(3, 9)); // [3, 4, 5, 6, 7, 8, 9]
+console.log(rangeOfNumbers(6, 6)); // [6]
+
+//// CONST - FOR LOOP
+function printManyTimes(str4) {
+  const SENTENCE = str4 + " is cool!";
+  for (let i = 0; i < str4.length; i += 2) {
+    console.log(SENTENCE);
+  }
+}
+printManyTimes("freeCodeCamp");
+
+//// Mutate and array
+const z = [5, 7, 2];
+function editInPlace() {
+  z[0] = 2;
+  z[1] = 5;
+  z[2] = 7;
+}
+editInPlace();
+console.log(z); // [2, 5, 7]
+
+//Prevent Object MutationPassed - Object.freeze
+let obj1 = {
+  name: "FreeCodeCamp",
+  review: "Awesome",
+};
+Object.freeze(obj1);
+//obj1.review = "bad";
+//obj1.newProp = "Test";
+//console.log(obj1); // Cannot assign to read only property 'review' of object '#<Object>'
+
+/// Arrow functions
+const myConcat = (arr5, arr6) => arr5.concat(arr6);
+
+console.log(myConcat([1, 2], [3, 4, 5])); // [1, 2, 3, 4, 5]
+
+////
+const increment3 = (number, value = 1) => number + value;
+// Only change code above this line
+console.log(increment3(2, 2)); // 4
+console.log(increment3(5)); // 6, default value = 1
