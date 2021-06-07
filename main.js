@@ -791,3 +791,107 @@ const increment3 = (number, value = 1) => number + value;
 // Only change code above this line
 console.log(increment3(2, 2)); // 4
 console.log(increment3(5)); // 6, default value = 1
+
+/// REST PARAMETER
+
+function howMany(...args) {
+  return "You have passed " + args.length + " arguments.";
+}
+console.log(howMany(0, 1, 2)); // You have passed 3 arguments.
+console.log(howMany("string", null, [1, 2, 3], {})); // You have passed 4 arguments.
+
+/// REST PARAMETER
+function sum1(...theArgs) {
+  return theArgs.reduce((previous, current) => {
+    return previous + current;
+  });
+}
+console.log(sum1(1, 2, 3, 4)); //10
+
+///This way
+const sum2 = (x, y, z) => {
+  const args = [x, y, z];
+  return args.reduce((a, b) => a + b, 0);
+};
+console.log(sum2(3, 5, 3)); // 11
+
+/// is the same as this one
+const sum3 = (...args) => {
+  return args.reduce((a, b) => a + b, 0);
+};
+console.log(sum3(8, 2, 5, 3)); // 18
+
+///SPREAD OPERATOR
+const arr1 = ["JAN", "FEB", "MAR", "APR", "MAY"];
+let arr2;
+arr2 = [...arr1];
+console.log(arr2); // [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY' ]
+
+///Destructuring to EXTRACT values
+
+const user = { name: "John Doe", age: 34 };
+//
+//const name = user.name;
+//onst age = user.age;
+//
+const { name, age } = user;
+///
+const HIGH_TEMPERATURES = {
+  yesterday: 75,
+  today: 77,
+  tomorrow: 80,
+};
+const { today, tomorrow } = HIGH_TEMPERATURES;
+console.log({ today, tomorrow }); // {today: 77, tomorrow: 80}
+
+///Destructuring to ASIGN variables
+const HIGH_TEMPERATURES2 = {
+  yesterday: 75,
+  today: 77,
+  tomorrow: 80,
+};
+
+const { today: highToday, tomorrow: highTomorrow } = HIGH_TEMPERATURES2;
+console.log(highToday, highTomorrow); // 77 80
+console.log({ highToday, highTomorrow }); // {highToday: 77, highTomorrow: 80}
+
+///
+const LOCAL_FORECAST = {
+  yesterday: { low: 61, high: 75 },
+  today: { low: 64, high: 77 },
+  tomorrow: { low: 68, high: 80 },
+};
+const {
+  today: { low: lowToday2, high: highToday2 },
+} = LOCAL_FORECAST;
+console.log(lowToday2, highToday2); // 64 77
+
+////
+const [d, e, , , h] = [1, 2, 3, 4, 5, 6];
+console.log(d, e, h); // 1 2 5
+///
+let k = 8,
+  l = 6;
+[l, k] = [k, l];
+console.log([l, k]); // [8, 6]
+
+////
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function removeFirstTwo(list) {
+  const [a, b, ...arr5] = list;
+  return arr5;
+}
+const arr5 = removeFirstTwo(source);
+console.log(arr5); // [3, 4, 5, 6, 7, 8, 9, 10]
+
+/////
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85,
+};
+const half = ({ max, min }) => (max + min) / 2.0;
+console.log(half(stats)); // 28.015
