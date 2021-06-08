@@ -1155,3 +1155,35 @@ function spreadOut() {
 }
 
 console.log(spreadOut()); // ["learning", "to", "code", "is", "fun"]
+
+////indexOf
+
+let fruits = ["apples", "pears", "oranges", "peaches", "pears"];
+
+console.log(fruits.indexOf("dates")); // -1 it doesn't exist
+fruits.indexOf("oranges");
+fruits.indexOf("pears");
+
+///
+function quickCheck(arr19, elem) {
+  if (arr19.indexOf(elem) >= 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(quickCheck(["squash", "onions", "shallots"], "mushrooms")); // false
+
+///
+function greaterThanTen(arr20) {
+  let newArr20 = [];
+  for (let i = 0; i < arr20.length; i++) {
+    if (arr20[i] > 10) {
+      newArr20.push(arr20[i]);
+    }
+  }
+  return newArr20;
+}
+
+greaterThanTen([2, 12, 8, 14, 80, 0, 1]);
+console.log(greaterThanTen([2, 12, 8, 14, 80, 0, 1])); // [12, 14, 80]
