@@ -895,3 +895,263 @@ const stats = {
 };
 const half = ({ max, min }) => (max + min) / 2.0;
 console.log(half(stats)); // 28.015
+
+///TEMPLATE LITERALS
+const result = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["no-extra-semi", "no-dup-keys"],
+};
+function makeList(arr) {
+  // Only change code below this line
+  const failureItems = [];
+  for (let i = 0; i < arr.length; i++) {
+    failureItems.push(`<li class="text-warning">${arr[i]}</li>`);
+  }
+  // Only change code above this line
+
+  return failureItems;
+}
+
+const failuresList = makeList(result.failure);
+console.log(makeList(result.failure)); // ["<li class="text-warning">no-var</li>", "<li class="text-warning">var-on-top</li>", "<li class="text-warning">linebreak</li>"]
+console.log(makeList(result.success)); // ["<li class="text-warning">max-length</li>", "<li class="text-warning">no-amd</li>", "<li class="text-warning">prefer-arrow-functions</li>"]
+
+////CREATE CONCISE OBJECT
+const createPerson = (name, age, gender) => {
+  return { name, age, gender };
+};
+console.log(createPerson("Irene", 51, "caca")); // {name: "Irene", age: 51, gender: "caca"}
+
+/////
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    this.gear = newGear;
+  },
+};
+bicycle.setGear(3);
+console.log(bicycle.gear); // 3
+
+/////
+class Vegetable {
+  constructor(name) {
+    this.name = name;
+  }
+}
+const carrot = new Vegetable("carrot");
+console.log(carrot.name); // Should display 'carrot'
+
+/////
+
+class Thermostat {
+  constructor(fahrenheit) {
+    this.fahrenheit = fahrenheit;
+  }
+
+  get temperature() {
+    return (5 / 9) * (this.fahrenheit - 32);
+  }
+
+  set temperature(celsius) {
+    this.fahrenheit = (celsius * 9.0) / 5 + 32;
+  }
+}
+
+const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in Celsius
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in Celsius
+console.log(temp); // 26
+
+//TEST()
+let myString = "Hello, World!";
+let myRegex = /Hello/;
+let result2 = myRegex.test(myString);
+console.log(result2); // true
+
+//////
+let myCacaArr = ["pedo", 3, undefined, 8, "bruchi"];
+let myRegex2 = /pedo/;
+let result3 = myRegex2.test(myCacaArr);
+console.log(result3); //true
+let myRegex3 = /5/;
+let result4 = myRegex3.test(myCacaArr); // or myRegex3.test(myCacaArr);
+console.log(result4); // false
+
+////
+let waldoIsHiding = "Somewhere Waldo is hiding in this text.";
+let waldoRegex = /Waldo/; // Change this line
+waldoRegex.test(waldoIsHiding);
+console.log(waldoRegex.test(waldoIsHiding)); // true
+
+////
+let petString = "James has a pet cat.";
+let petRegex = /dog|cat|bird|fish/;
+let result5 = petRegex.test(petString);
+console.log(result5); // true
+
+///
+let myString3 = "freeCodeCamp";
+let fccRegex = /freecodecamp/i;
+let result6 = fccRegex.test(myString3);
+
+///'string'.match(/regex/);
+/// /regex/.test('string');
+
+let extractStr = "Extract the word 'coding' from this string.";
+let codingRegex = /coding/;
+let result7 = extractStr.match(codingRegex);
+console.log(result7); // ["coding", index: 18, input: "Extract the word 'coding' from this string.", groups: undefined]
+
+/////CONSOLE
+let seven = 7;
+let three = "3";
+console.log(seven + three); // 73
+console.log(typeof seven); // number
+console.log(typeof three); // string
+
+///
+let receivables = 10;
+let payables = 8;
+let netWorkingCapital = receivables - payables;
+console.log(`Net working capital is: ${netWorkingCapital}`); // Net working capital is: 2
+
+///
+let myArray9 = [1, 2, 3];
+let arraySum = myArray9.reduce((previous, current) => previous + current);
+console.log(`Sum of array values is: ${arraySum}`); // Sum of array values is: 6
+
+///
+let innerHtml = '<p>Click here to <a href="#Home">return home</a></p>';
+console.log(innerHtml); // <p>Click here to <a href="#Home">return home</a></p>
+
+///
+let x = 7;
+let y = 9;
+let result9 = "to come";
+
+if (x === y) {
+  result9 = "Equal!";
+} else {
+  result9 = "Not equal!";
+}
+console.log(result9); // Not equal
+
+///
+function getNine() {
+  let x = 6;
+  let y = 3;
+  return x + y;
+}
+
+let result11 = getNine();
+console.log(result11); // 9
+
+///
+function raiseToPower(b, e) {
+  return Math.pow(b, e);
+}
+let base = 2;
+let exp = 3;
+let power = raiseToPower(base, exp);
+console.log(power); // 8
+
+///
+function countToFive() {
+  let firstFive = "12345";
+  let len = firstFive.length;
+  for (let i = 0; i < len; i++) {
+    console.log(firstFive[i]); // // 1 2 3 4 5
+  }
+}
+countToFive();
+
+///
+function zeroArray(m, n) {
+  let newArray = [];
+
+  for (let i = 0; i < m; i++) {
+    let row = [];
+    for (let j = 0; j < n; j++) {
+      row.push(0);
+    }
+    newArray.push(row);
+  }
+  return newArray;
+}
+
+let matrix = zeroArray(3, 2);
+console.log(matrix); // [[0, 0], [0, 0], [0, 0]]
+
+////ARRAYS
+let myArray12 = ["a", "b", "c", "d"];
+myArray12[1] = "caca";
+console.log(myArray12); // [ 'a', 'caca', 'c', 'd' ]
+
+///
+function mixedNumbers(arr) {
+  arr.unshift("I", 2, "three");
+  arr.push(7, "VIII", 9);
+  return arr;
+}
+console.log(mixedNumbers(["IV", 5, "six"]));
+
+///
+function popShift(arr13) {
+  let popped = arr13.pop(); // Change this line
+  let shifted = arr13.shift(); // Change this line
+  return [shifted, popped];
+}
+
+console.log(popShift(["challenge", "is", "not", "complete"])); // [ 'challenge', 'complete' ]
+
+///SPLICE (from i to number of items)
+const arr14 = [2, 4, 5, 1, 7, 5, 2, 1];
+let newArr14 = arr14.splice(1, 4);
+console.log(arr14); // [2, 5, 2, 1]
+
+///
+function htmlColorNames(arr15) {
+  arr15.splice(0, 2, "DarkSalmon", "BlanchedAlmond");
+  return arr15;
+}
+
+console.log(htmlColorNames(["DarkGoldenRod", "WhiteSmoke", "LavenderBlush", "PaleTurquoise", "FireBrick"])); // ["DarkSalmon", "BlanchedAlmond", "LavenderBlush", "PaleTurquoise", "FireBrick"]
+
+///SLICE (from start i to end i not included)
+function forecast(arr16) {
+  return arr16.slice(2, 4);
+}
+console.log(forecast(["cold", "rainy", "warm", "sunny", "cool", "thunderstorms"])); // "warm", "sunny"]
+
+///SPREAD OPERATOR
+function copyMachine(arr17, num) {
+  let newArr17 = [];
+  while (num >= 1) {
+    newArr17.push([...arr17]);
+    num--;
+  }
+  return newArr17;
+}
+console.log(copyMachine([true, false, true], 2)); ///[ [ true, false, true ], [ true, false, true ] ]
+
+////
+function copyTheArray(arr18, number) {
+  let newArr18 = [];
+  for (let index = 0; index < arr18.length; index++) {
+    newArr18.push([...arr18]);
+    number--;
+  }
+  return newArr18;
+}
+console.log(copyTheArray(["a", "b", "c"], 3)); // [["a", "b", "c"], ["a", "b", "c"], ["a", "b", "c"]]
+
+///
+function spreadOut() {
+  let fragment = ["to", "code"];
+  let sentence = ["learning", ...fragment, "is", "fun"]; // Change this line
+  return sentence;
+}
+
+console.log(spreadOut()); // ["learning", "to", "code", "is", "fun"]
