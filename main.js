@@ -1187,3 +1187,14 @@ function greaterThanTen(arr20) {
 
 greaterThanTen([2, 12, 8, 14, 80, 0, 1]);
 console.log(greaterThanTen([2, 12, 8, 14, 80, 0, 1])); // [12, 14, 80]
+
+///MAP
+
+const users3 = [
+  { name: "John", age: 34 },
+  { name: "Amy", age: 20 },
+  { name: "camperCat", age: 10 },
+];
+
+const names = users3.map((user) => user.name);
+console.log(names); //["John", "Amy", "camperCat"]
