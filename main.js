@@ -576,7 +576,7 @@ var total = 0;
 for (let i = 0; i < myArr.length; i++) {
   total += myArr[i];
 }
-console.log(total);
+console.log(total); // 20
 /////
 var arr = [
   [1, 2],
@@ -585,7 +585,7 @@ var arr = [
 ];
 for (var i = 0; i < arr.length; i++) {
   for (var j = 0; j < arr[i].length; j++) {
-    console.log(arr[i][j]);
+    console.log(arr[i][j]); // 1 2 3 4 5 6
   }
 }
 //////Product
@@ -619,6 +619,28 @@ console.log(
     [2, 3],
   ])
 ); // 12
+
+///// RECURSION product
+function multiply(arr20, n) {
+  if (n <= 0) {
+    return 1;
+  } else {
+    return multiply(arr20, n - 1) * arr20[n - 1];
+  }
+}
+console.log(multiply([2, 1, 3, 2], 3)); // 6 (return product of the first n elements 2*1*3 )
+
+//////RECURSION sum
+function sum(arr21, n) {
+  if (n <= 0) {
+    return 0;
+  } else {
+    return sum(arr21, n - 1) + arr21[n - 1];
+  }
+}
+console.log(sum([1, 3, 4, 2, 1, 5], 3)); // 8 (return sum of the first n elements 1+3+4 )
+console.log(sum([2, 3, 4, 5], 2)); // 5 (return sum of the first n elements 2+3)
+console.log(sum([1, 3, 4, 2, 1, 5], 4)); // 10 (return sum of the first n elements 1+3+4+2 )
 
 ////PROFILE LOOKUP
 var contacts = [

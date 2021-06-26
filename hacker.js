@@ -22,4 +22,4 @@ function getNewString(arrE) {
   let popped = arrE.pop();
   return [shifted, using, popped];
 }
-console.log(getNewString(arrE));
+console.log(getNewString(arrE)); // ["I", "using", "programming"]
