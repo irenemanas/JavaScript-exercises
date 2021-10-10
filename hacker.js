@@ -116,13 +116,3 @@ function jumpingOnClouds(c) {
   }
   return splittedC.length - 1;
 }
-
-////MAP////
-const animals = ["Hen", "elephant", "llama", "leopard", "ostrich", "Whale", "octopus", "rabbit", "lion", "dog"];
-
-// Create the secretMessage array below
-const secretMessage = animals.map((first) => {
-  return first[0];
-});
-
-console.log(secretMessage.join(""));
