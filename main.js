@@ -697,13 +697,14 @@ console.log(randomFraction()); // number between 0 and 1 (1 excluded)
 function randomWholeNum() {
   return Math.floor(Math.random() * 10);
 }
-console.log(randomWholeNum()); // 8, number betwee 1 and 9 (included)
+console.log(randomWholeNum()); // 8, number betwee 0 and 9 (included)
 
 ///
 function randomRange(myMin, myMax) {
   return Math.floor(Math.random() * (myMax - myMin + 1) + myMin);
 }
 console.log(randomRange(13, 15)); // 13, 14 or 15
+console.log(randomRange(3, 10)); // 3, 4, 5, 6, 7, 8, 9 or 10
 
 ////parseInt() parses a string and returns an integer
 let a = parseInt("007");
@@ -714,6 +715,7 @@ function convertToInteger(str) {
 }
 convertToInteger("56");
 console.log(convertToInteger("56")); // 56
+console.log(convertToInteger("caca")); // NaN
 
 ///parseInt with radix
 function convertToInteger2(str) {
@@ -830,7 +832,7 @@ function sum1(...theArgs) {
 }
 console.log(sum1(1, 2, 3, 4)); //10
 
-///This way
+///
 const sum2 = (x, y, z) => {
   const args = [x, y, z];
   return args.reduce((a, b) => a + b, 0);
@@ -918,19 +920,18 @@ const stats = {
 const half = ({ max, min }) => (max + min) / 2.0;
 console.log(half(stats)); // 28.015
 
-///TEMPLATE LITERALS
+///TEMPLATE LITERALS///////////
+
 const result = {
   success: ["max-length", "no-amd", "prefer-arrow-functions"],
   failure: ["no-var", "var-on-top", "linebreak"],
   skipped: ["no-extra-semi", "no-dup-keys"],
 };
 function makeList(arr) {
-  // Only change code below this line
   const failureItems = [];
   for (let i = 0; i < arr.length; i++) {
     failureItems.push(`<li class="text-warning">${arr[i]}</li>`);
   }
-  // Only change code above this line
 
   return failureItems;
 }
@@ -939,11 +940,19 @@ const failuresList = makeList(result.failure);
 console.log(makeList(result.failure)); // ["<li class="text-warning">no-var</li>", "<li class="text-warning">var-on-top</li>", "<li class="text-warning">linebreak</li>"]
 console.log(makeList(result.success)); // ["<li class="text-warning">max-length</li>", "<li class="text-warning">no-amd</li>", "<li class="text-warning">prefer-arrow-functions</li>"]
 
+document.querySelector(
+  ".js-failureList"
+).innerHTML = `<li class=".js-failureList">${result.success}</li><li class=".js-failureList">${result.failure}</li><li class=".js-failureList">${result.skipped}</li>`;
+
 ////CREATE CONCISE OBJECT
 const createPerson = (name, age, gender) => {
   return { name, age, gender };
 };
 console.log(createPerson("Irene", 51, "caca")); // {name: "Irene", age: 51, gender: "caca"}
+const person = { name: "Irene", age: 51, gender: "caca" };
+document.querySelector(
+  ".js-person"
+).innerHTML = `<li class=".js-person">${person.name}</li><li class=".js-person">${person.age}</li><li class=".js-person">${person.gender}</li>`;
 
 /////
 const bicycle = {
@@ -1220,3 +1229,41 @@ const users3 = [
 
 const names = users3.map((user) => user.name);
 console.log(names); //["John", "Amy", "camperCat"]
+
+////MAP////
+const animalsX = ["Hen", "elephant", "llama", "leopard", "ostrich", "Whale", "octopus", "rabbit", "lion", "dog"];
+
+// Create the secretMessage array below
+const secretMessageX = animalsX.map((first) => {
+  return first[0];
+});
+
+console.log(secretMessageX.join(""));
+
+////MAP
+
+const bigNumbersX = [100, 200, 300, 400, 500];
+
+// Create the smallNumbers array below
+const smallNumbersX = bigNumbersX.map((numberX) => {
+  return numberX / 100;
+});
+console.log(smallNumbersX);
+
+////  FILTER  //////
+
+const randomNumbers = [375, 200, 3.14, 7, 13, 852];
+
+// Call .filter() on randomNumbers below
+const smallNumbers = randomNumbers.filter((number) => {
+  return number < 250;
+});
+console.log(smallNumbers);
+
+const favoriteWords = ["nostalgia", "hyperbole", "fervent", "esoteric", "serene"];
+
+// Call .filter() on favoriteWords below
+const longFavoriteWords = favoriteWords.filter((word) => {
+  return word.length > 7;
+});
+console.log(longFavoriteWords);
