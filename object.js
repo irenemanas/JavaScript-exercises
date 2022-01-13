@@ -128,3 +128,82 @@ for (let crewMember in spaceshipY.crew) {
     Clementine: Physics
     Shauna: Conservation Science        
 */
+
+const robot = {
+  model: "SAL-1000",
+  mobile: true,
+  sentient: false,
+  armor: "Steel-plated",
+  energyLevel: 75,
+};
+
+// What is missing in the following method call?
+const robotKeys = Object.keys(robot);
+
+console.log(robotKeys); /// [ 'model', 'mobile', 'sentient', 'armor', 'energyLevel' ]
+
+// Declare robotEntries below this line:
+const robotEntries = Object.entries(robot);
+
+console.log(robotEntries);
+/* [ [ 'model', 'SAL-1000' ],
+[ 'mobile', true ],
+[ 'sentient', false ],
+[ 'armor', 'Steel-plated' ],
+[ 'energyLevel', 75 ] ] */
+
+// Declare newRobot below this line:
+
+const newRobot = Object.assign({ laserBlaster: true, voiceRecognition: true }, robot);
+console.log(newRobot);
+/* { laserBlaster: true,
+  voiceRecognition: true,
+  model: 'SAL-1000',
+  mobile: true,
+  sentient: false,
+  armor: 'Steel-plated',
+  energyLevel: 75 } */
+
+/////
+// declare kelvin variable
+const kelvin = 0;
+//declare celsius variable
+const celsius = kelvin - 273;
+//declare fahrenheit variable
+let fahrenheit = celsius * (9 / 5) + 32;
+//round the fahrenheit numbre
+fahrenheit = Math.floor(fahrenheit);
+
+console.log(`The temperature is ${fahrenheit} degrees Fahrenheit.`); // The temperature is -460 degrees Fahrenheit.
+
+// Convert to Newton
+let newton = celsius * (33 / 100);
+// Round down
+newton = Math.floor(newton);
+console.log(`The temperature is ${newton} degrees Newton.`); // The temperature is -91 degrees Newton.
+
+/////////
+
+//Create myAge variable
+const myAge = 20;
+//Create earlyYears variable
+let earlyYears = 2;
+earlyYears *= 10.5;
+//Create laterYears variable
+let laterYears = myAge - 2;
+//Assign new value to laterYears
+laterYears *= 4;
+
+console.log(earlyYears); // 21
+console.log(laterYears); // 72
+
+//variable named myAgeInDogYears
+const myAgeInDogYears = earlyYears + laterYears;
+
+const myName = "Irene".toLowerCase();
+
+console.log(
+  `My name is ${myName}. I am ${myAge} years old in human years which is ${myAgeInDogYears} years old in dog years.`
+);
+
+/* My name is irene. I am 20 years old in human years which is 93 years old in dog years. */

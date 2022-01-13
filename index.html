@@ -5,13 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
     <ul class="js-failureList"></ul>
     <ul class="js-person"></ul>
+    <div id="container">
+      <div id="box"></div>
+    </div>
+    <button id="button" onclick="show()">Click me</button>
+    <button id="button1">Get the date</button>
+    <div id="input">
+      <label for="name">cambia tu nombre a mayúsculas</label>
+      <input type="text" id="name" onchange="change()" />
+    </div>
+    <button id="demo">START</button>
     <script src="./main.js"></script>
     <script src="./hacker.js"></script>
     <script src="./mapfilter.js"></script>
     <script src="./object.js"></script>
+    <script src="./animation.js"></script>
   </body>
 </html>

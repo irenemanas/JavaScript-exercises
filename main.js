@@ -785,6 +785,21 @@ function printManyTimes(str4) {
 }
 printManyTimes("freeCodeCamp");
 
+///Snail number of days - FOR LOOP
+
+function main() {
+  var depth = parseInt(readLine(), 10);
+  //your code goes here
+
+  for (d = 0; depth > 0; d++) {
+    depth = depth - 7;
+    if (depth > 0) {
+      depth = depth + 2;
+    }
+  }
+  console.log(d);
+}
+
 //// Mutate and array
 const z = [5, 7, 2];
 function editInPlace() {

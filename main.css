@@ -1,0 +1,34 @@
+#container {
+  width: 200px;
+  height: 200px;
+  background: green;
+  position: relative;
+}
+#box {
+  width: 50px;
+  height: 50px;
+  background: red;
+  position: absolute;
+}
+#button {
+  margin-top: 50px;
+  width: 100px;
+  height: 50px;
+  background-color: hotpink;
+}
+#button1 {
+  margin-top: 50px;
+  width: 100px;
+  height: 50px;
+  background-color: orange;
+}
+#input {
+  margin-top: 50px;
+}
+#demo {
+  margin-top: 50px;
+  width: 100px;
+  height: 50px;
+  background-color: black;
+  color: azure;
+}
