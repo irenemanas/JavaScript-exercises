@@ -235,3 +235,24 @@ console.log(secretMessage);
 
 //join and print message
 console.log(secretMessage.join(" "));
+
+/// WHALE TALK TRANSLATOR
+let input = "a whale of a deal!";
+const vowels = ["a", "e", "i", "o", "u"];
+let resultArray = [];
+
+for (let i = 0; i < input.length; i++) {
+  //console.log('i is ' + i);
+  for (let j = 0; j < vowels.length; j++) {
+    //console.log('j is ' + j);
+    if (input[i] === vowels[j]) {
+      resultArray.push(input[i]);
+      if (input[i] === "e" || input[i] === "u") {
+        resultArray.push(input[i]);
+        break;
+      }
+    }
+  }
+}
+console.log(resultArray); // ['a', 'a', 'e', 'e', 'o', 'a', 'e', 'e', 'a']
+console.log(resultArray.join("").toUpperCase()); // AAEEOAEEA
