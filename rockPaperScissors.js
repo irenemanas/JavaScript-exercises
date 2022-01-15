@@ -113,3 +113,125 @@ const calculateSleepDebt = () => {
   }
 };
 calculateSleepDebt();
+
+// TRAINING DAYS | SCOPE
+const getRandEvent = () => {
+  const random = Math.floor(Math.random() * 3);
+  if (random === 0) {
+    return "Marathon";
+  } else if (random === 1) {
+    return "Triathlon";
+  } else if (random === 2) {
+    return "Pentathlon";
+  }
+};
+
+const getTrainingDays = (event) => {
+  let days;
+  if (event === "Marathon") {
+    days = 50;
+  } else if (event === "Triathlon") {
+    days = 100;
+  } else if (event === "Pentathlon") {
+    days = 200;
+  }
+
+  return days;
+};
+
+const name2 = "Nala";
+const logEvent = (name2, event) => {
+  console.log(`${name2}'s event is: ${event}`);
+};
+
+const logTime = (name2, days) => {
+  console.log(`${name2}'s time to train is: ${days} days`);
+};
+
+const event = getRandEvent();
+const days = getTrainingDays(event);
+// Define a `name` variable. Use it as an argument after updating logEvent and logTime
+
+logEvent(name2, event);
+logTime(name2, days);
+
+const event2 = getRandEvent();
+const days2 = getTrainingDays(event2);
+const name3 = "Warren";
+
+logEvent(name3, event2);
+logTime(name3, days2);
+
+///ARRAYS
+
+let arr16 = ["this is the first element", "this is the second element", "this is the last element"];
+console.log(arr16[0]); // logs 'this is the first element'
+console.log(arr16[1]); // logs 'this is the second element'
+console.log(arr16[arr16.length - 1]); // logs 'this is the last element'
+
+let food = ["cofee", "milk", "eggs", "tomato"];
+console.log(food[food.length - 1]); // tomato
+console.log(food.splice(1, 2)); // ['milk', 'eggs']
+console.log(food); // ['coffe', 'tomato']
+console.log(food.slice(0, 1)); // ['cofee']
+
+//SECRET MESSAGE
+
+let secretMessage = [
+  "Learning",
+  "is",
+  "not",
+  "about",
+  "what",
+  "you",
+  "get",
+  "easily",
+  "the",
+  "first",
+  "time,",
+  "it",
+  "is",
+  "about",
+  "what",
+  "you",
+  "can",
+  "figure",
+  "out.",
+  "-2015,",
+  "Chris",
+  "Pine,",
+  "Learn",
+  "JavaScript",
+];
+console.log(secretMessage.length);
+
+//revome last string
+let lastWord = secretMessage.pop();
+console.log(secretMessage.length);
+
+//add "to" and "program" at the end
+let addWordsAtEnd = secretMessage.push("to", "program");
+console.log(secretMessage);
+
+//change 'easily' to 'rigth'
+secretMessage[7] = "rigth";
+console.log(secretMessage);
+
+//remove the first string
+secretMessage.shift();
+console.log(secretMessage);
+
+//add 'Programming' to the beginning
+secretMessage.unshift("Programming");
+console.log(secretMessage);
+
+///revove and replace
+let revomedStrings = secretMessage.splice(6, 5);
+secretMessage[6] = "know";
+console.log(secretMessage);
+
+//another way
+//secretMessage.splice(6, 5, 'know');
+
+//join and print message
+console.log(secretMessage.join(" "));
